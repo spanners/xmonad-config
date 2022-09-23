@@ -17,23 +17,23 @@ setxkbmap -option "ctrl:nocaps" &
 xcompmgr -n &
 
 # Set a wallpaper
-feh --bg-fill ~/.wallpaper.jpg &
+#feh --bg-fill ~/.wallpaper.jpg &
 
 # Start the system tray
 stalonetray -c ~/.xmonad/stalonetrayrc-single &
 
 # Start two terminals
-gnome-terminal &
-gnome-terminal &
+kitty &
 
 # Start a browser
-google-chrome &
+firefox &
 
 # Start screensaver
-killall gnome-screensaver &
+# killall gnome-screensaver &
 xscreensaver -no-splash &
 
 # Start sound server
 pulseaudio --start --log-target=syslog &
 
-exec ck-launch-session dbus-launch --sh-syntax --exit-with-session xmonad
+# exec ck-launch-session dbus-launch --sh-syntax --exit-with-session xmonad
+exec dbus-launch --sh-syntax --exit-with-session xmonad
