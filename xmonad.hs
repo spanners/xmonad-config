@@ -43,7 +43,7 @@ myScreenshot = "screenshot"
 myLauncher = "$(yeganesh -x -- -fn 'monospace-14' -nb '#000000' -nf '#FFFFFF' -sb '#7C7C7C' -sf '#CEFFAC')"
 
 -- Location of your xmobar.hs / xmobarrc
-myXmobarrc = "~/.xmonad/xmobar-single.hs"
+myXmobarrc = "~/.xmonad/xmobar-dual.hs"
 
 
 ------------------------------------------------------------------------
@@ -344,7 +344,8 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = do
+    spawn "xrandr-dual"
 
 
 ------------------------------------------------------------------------
