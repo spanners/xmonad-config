@@ -45,6 +45,8 @@ myLauncher = "$(yeganesh -x -- -fn 'monospace-14' -nb '#000000' -nf '#FFFFFF' -s
 -- Location of your xmobar.hs / xmobarrc
 myXmobarrc = "~/.xmonad/xmobar-dual.hs"
 
+myScreenFixer = "xrandr-dual"
+
 
 ------------------------------------------------------------------------
 -- Workspaces
@@ -147,6 +149,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Start a terminal.  Terminal to start is specified by myTerminal variable.
   [ ((modMask .|. shiftMask, xK_Return),
      spawn $ XMonad.terminal conf)
+
+  -- Fix screen layout
+  , ((modMask .|. controlMask, xK_f),
+     spawn myScreenFixer)
 
   -- Lock the screen using command specified by myScreensaver.
   , ((modMask .|. controlMask, xK_l),
@@ -344,9 +350,7 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = do
-    spawn "xrandr-dual"
-
+myStartupHook = return ()
 
 ------------------------------------------------------------------------
 -- Run xmonad with all the defaults we set up.

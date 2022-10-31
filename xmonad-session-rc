@@ -23,7 +23,7 @@ xcompmgr -n &
 stalonetray -c ~/.xmonad/stalonetrayrc-dual &
 
 # Start two terminals
-kitty &
+kitty tmux attach &
 
 # Start a browser
 firefox &
@@ -34,6 +34,8 @@ xscreensaver -no-splash &
 
 # Start sound server
 pulseaudio --start --log-target=syslog &
+
+sh ~/.xmonad/bin/xrandr-dual
 
 # exec ck-launch-session dbus-launch --sh-syntax --exit-with-session xmonad
 exec dbus-launch --sh-syntax --exit-with-session xmonad
